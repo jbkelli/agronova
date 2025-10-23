@@ -1,6 +1,6 @@
+const POST_STATUS = document.getElementById('post-status');
 document.addEventListener("DOMContentLoaded", () => {
     // browser script (remove any Node-specific requires)
-    const POST_STATUS = document.getElementById('post-status');
     const LOGOUT_BTN = document.getElementById('logout-btn');
     const POST_FORM = document.getElementById('post-form');
     // from admin/html/admin-dashboard.html the login file is one level up in the admin folder
