@@ -1,9 +1,27 @@
-// browser script (remove any Node-specific requires)
-const POST_STATUS = document.getElementById('post-status');
-const LOGOUT_BTN = document.getElementById('logout-btn');
-const POST_FORM = document.getElementById('post-form');
-// from admin/html/admin-dashboard.html the login file is one level up in the admin folder
-const LOGIN_URL = '/index.html';
+document.addEventListener("DOMContentLoaded", () => {
+    // browser script (remove any Node-specific requires)
+    const POST_STATUS = document.getElementById('post-status');
+    const LOGOUT_BTN = document.getElementById('logout-btn');
+    const POST_FORM = document.getElementById('post-form');
+    // from admin/html/admin-dashboard.html the login file is one level up in the admin folder
+    const LOGIN_URL = '/index.html';
+
+    //adding event listeners for submitting the form and logging out (guarded)
+    if(POST_FORM){
+        POST_FORM.addEventListener('submit', handlePostSubmission);
+    }
+
+    if(LOGOUT_BTN){
+        LOGOUT_BTN.addEventListener('click', async () => {
+            await auth.signOut();
+            window.location.href = LOGIN_URL;
+        });
+    }
+
+    //running the authorization immediately
+    setupAuthGuard();
+
+});
 
 //Protection using authorized checkin
 function setupAuthGuard() {
@@ -116,18 +134,3 @@ async function handlePostSubmission(e) {
         console.error("Post error:", error);
     }
 }
-
-//adding event listeners for submitting the form and logging out (guarded)
-if(POST_FORM){
-    POST_FORM.addEventListener('submit', handlePostSubmission);
-}
-
-if(LOGOUT_BTN){
-    LOGOUT_BTN.addEventListener('click', async () => {
-        await auth.signOut();
-        window.location.href = LOGIN_URL;
-    });
-}
-
-//running the authorization immediately
-setupAuthGuard();

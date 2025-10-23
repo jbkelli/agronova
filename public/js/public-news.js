@@ -39,7 +39,7 @@ function renderNewsCards(snapshot){
 }
 
 function loadAllNews(){
-    window.db.collection('news_posts')
+    db.collection('news_posts')
     .orderBy('date', 'desc')
     .limit(15)
     .get()
