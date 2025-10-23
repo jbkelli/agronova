@@ -1,3 +1,5 @@
+const { default: firebase } = require("firebase/compat/app");
+
 //configuring firebase attributes
 const firebaseConfig = {
   apiKey: "AIzaSyBIa6IIz5bx7SLQuv4jQiEc2UOZnZXVIS4",
@@ -17,6 +19,6 @@ const app = firebase.initializeApp(firebaseConfig);
 // The admin-auth.js file requires 'auth'
 // The public-news.js file requires 'db'
 // The admin-crud.js file requires 'auth', 'db', and 'storage'
-const auth = app.auth();
-const db = app.firestore();
-const storage = app.storage();
+const auth = firebase.auth();
+const db = firebase.firestore();
+const storage = firebase.storage();
