@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriNova | Admin Login</title>
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <main class="login-container">
+        <section class="login-box">
+            <header>
+                <h1 class="logo-text">AGRI<span>Nova</span> <span class="sub-text">ADMIN ACCESS</span></h1>
+            </header>
+            <p id="status" class="status-message">Enter credentials to proceed...</p>
+
+            <form action="" id="login-form">
+                <div class="input-group">
+                    <label for="email">Admin Email</label>
+                    <input type="email" name="email" id="email" autocomplete="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" class="btn-login">ACCESS TERMINAL</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+    <p>&copy; 2025 AgriNova. All rights reserved</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="./js/firebase-config.js"></script>
+    <script src="./js/admin-auth.js"></script>
+</body>
+</html>

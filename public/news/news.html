@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriNova | Latest News & Events</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <img src="../images/logo.png" alt="" class="logo" width="50px" height="50px">
+        <nav>
+            <ul>
+                <li><a href="../home/homepage.html">HOME</a></li>
+                <li><a href="../management/management.html">MANAGEMENT</a></li>
+                <li><a href="../work/work.html">ACHIEVEMENTS</a></li>
+                <li><a href="../news/news.html">NEWS & UPDATES</a></li>
+            </ul>
+        </nav>
+        <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </header>
+
+    <main class="news-main">
+        <div id="status" class="public-status">Loading latest news.....</div>
+        <div id="news-container"></div>
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <script src="/public/js/firebase-config.js"></script>
+
+    <script src="/public/js/public-news.js"></script>
+    <script src="/public/home/nav.js"></script>
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2025 AgriNova Solutions Group. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="/public/home/homepage.html">Home</a>
+                <a href="/public/news/news.html">News</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

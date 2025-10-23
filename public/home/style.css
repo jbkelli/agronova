@@ -1,0 +1,606 @@
+:root {
+    --color-dark: #101820;
+    --color-primary: #00FFC0;
+    --color-secondary: #00A3FF;
+    --color-text: #E0E0E0;
+    --color-bg-light: #222b36;
+}
+
+:root {
+    --page-bg-start: var(--color-bg-light); /* #222b36 */
+    --page-bg-end: #0b141d; /* deep teal/near-black */
+    --text-high: var(--color-text); /* #E0E0E0 */
+    --muted: #9fbfb5; /* soft green for secondary text */
+}
+
+/* FIX #2: FIXES HORIZONTAL SCROLL */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: linear-gradient(180deg, var(--page-bg-start), var(--page-bg-end));
+    color: var(--text-high);
+}
+
+/* Prevent accidental horizontal overflow from large images or elements */
+html, body {
+    overflow-x: hidden;
+}
+
+/* FIX #2: Resets browser default margin */
+body {
+    margin: 0;
+}
+
+main{
+    display: block;
+    justify-items: center;
+    flex: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-dark);
+    margin: 0;
+    padding: 8px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    border-radius: 8px;
+}
+
+/* basic utilities */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* --- FIX #1: RE-WRITTEN NAV LOGIC (MOBILE-FIRST) --- */
+
+/* 1. Base styles are for mobile */
+nav ul {
+    /* Hidden by default on mobile */
+    display: none; 
+    
+    /* These styles apply to the dropdown menu when it's open */
+    flex-direction: column;
+    position: absolute;
+    right: 12px;
+    top: calc(100% + 8px);
+    background: var(--color-dark);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    z-index: 1200;
+    min-width: 180px;
+    gap: 16px;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+    display: block; /* Change from inline-block for vertical menu */
+}
+
+nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    display: block; /* Make links full-width in the dropdown */
+}
+
+nav ul li a:hover {
+    background: rgba(0, 255, 192, 0.06);
+    color: var(--color-primary);
+}
+
+/* 2. Show the hamburger by default on mobile */
+#nav-toggle {
+    display: block; /* Show hamburger */
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    font-size: 26px;
+    cursor: pointer;
+    position: absolute; /* Position it correctly */
+    right: 12px;
+    top: 10px;
+}
+
+/* 3. This class (toggled by JS) shows the mobile menu */
+header nav.open ul {
+    display: flex;
+}
+
+/* 4. Desktop overrides (701px and up) */
+@media screen and (min-width: 701px) {
+    #nav-toggle {
+        /* Hide hamburger on desktop */
+        display: none; 
+    }
+
+    nav ul {
+        /* Show nav list on desktop */
+        display: flex; 
+        
+        /* Override all the mobile dropdown styles */
+        flex-direction: row;
+        position: static;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        min-width: 0;
+    }
+
+    nav ul li {
+        display: inline-block; /* Back to horizontal */
+    }
+
+    nav ul li a {
+        display: inline-block; /* Back to inline */
+    }
+}
+/* --- END OF NAV FIX --- */
+
+
+@media screen and (max-width: 1400px) {
+    /* This rule is correct for hiding items.
+       Remember to apply class="exclude" to the <li> in your HTML!
+    */
+    .exclude {
+        display: none !important;
+    }
+
+    /* make sure hidden anchors don't keep right margin */
+    nav ul li a.exclude {
+        margin-right: 0 !important;
+    }
+
+    /* use a non-wrapping header layout so visible nav items stay inline */
+    header {
+        display: flex;
+        flex-wrap: nowrap; /* prevent nav from wrapping to a new line */
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+    }
+
+    /* ensure nav list doesn't wrap and has no bullets (forcefully) */
+    header nav ul {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-left: 0 !important;
+        gap: 12px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    header nav ul li {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    header nav ul li a {
+        color: var(--color-text) !important;
+        text-decoration: none !important;
+        padding: 8px 10px !important;
+    }
+
+    .hero {
+        display: flex;
+        gap: 24px;
+        align-items: stretch;
+        padding: 36px 16px;
+        background: linear-gradient(180deg, rgba(6, 18, 26, 0.12), rgba(7, 26, 20, 0.06));
+    }
+
+    .hero-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-right {
+        width: 380px;
+        background: linear-gradient(180deg, rgba(0, 255, 192, 0.03), rgba(0, 163, 255, 0.02));
+        padding: 28px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-image-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        transform: scale(1);
+        transition: transform 400ms cubic-bezier(.2, .8, .2, 1);
+    }
+}
+
+/* phone-specific styles */
+@media screen and (max-width: 700px) {
+    /* All mobile nav styles are now the base styles,
+       so these rules are no longer needed.
+    */
+    /* #nav-toggle { ... } */
+    /* nav ul { ... } */
+    /* header nav.open ul { ... } */
+    /* header nav.open ul li a { ... } */
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    padding: 36px 16px;
+    background: linear-gradient(180deg, rgba(6, 18, 26, 0.12), rgba(7, 26, 20, 0.06));
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure hero columns cannot exceed the viewport width */
+.hero, .hero-left, .hero-right {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.hero-right {
+    width: 380px;
+    background: linear-gradient(180deg, rgba(0, 255, 192, 0.03), rgba(0, 163, 255, 0.02));
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    margin: 0%;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1);
+    transition: transform 400ms cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Clamp hero/logo and all images to avoid overflow */
+img, .hero-image, header img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-image-wrapper:hover .hero-image {
+    transform: scale(1.06) translateZ(0);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(3, 6, 10, 0.72), rgba(3, 6, 10, 0.25));
+    color: #ffffff;
+    z-index: 1; /* keep overlay under the header */
+}
+
+.hero-title {
+    font-size: 36px;
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.phrase {
+    margin-top: 8px;
+    color: var(--text-high);
+    max-width: 420px;
+}
+
+.hero-right h1 {
+    margin-top: 0;
+    color: var(--color-primary);
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--color-primary);
+    color: #06121a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(0, 255, 192, 0.08);
+}
+
+/* ABOUT */
+.about-inner {
+    padding: 32px 16px;
+    background: linear-gradient(180deg, rgba(1, 20, 14, 0.08), rgba(1, 30, 24, 0.02));
+    border-radius: 10px;
+    max-width: 900px; /* constrain width so it centers nicely */
+    margin: 20px auto; /* center the about block */
+}
+
+.about-inner h1 {
+    color: var(--color-secondary);
+}
+
+.about-content {
+    color: var(--text-high);
+    line-height: 1.6;
+}
+
+.about-content ul {
+    margin-left: 16px;
+}
+
+/* TESTIMONIALS */
+/* Testimonials section container */
+#testimonials {
+    padding: 28px 16px;
+}
+
+.testimonials-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.test-slider {
+    flex: 1;
+    overflow: hidden;
+}
+
+.test-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    transition: transform 360ms ease;
+}
+
+.test-list li {
+    min-width: 100%;
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(6, 18, 26, 0.3), rgba(6, 18, 26, 0.15));
+    color: var(--text-high);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.test-prev,
+.test-next {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--color-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* CONTACTS */
+#contacts {
+    padding: 28px 16px;
+}
+
+.contacts-grid {
+    display: flex;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center; /* center the contact grid columns within the constrained width */
+}
+
+#contact-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.contact-info {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 18px;
+    border-radius: 8px;
+    color: var(--text-high);
+}
+
+#contact-form label {
+    display: block;
+    margin-top: 8px;
+    color: var(--text-high);
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: transparent;
+    color: var(--text-high);
+}
+
+.contact-info {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 18px;
+    border-radius: 8px;
+    color: var(--color-text);
+}
+
+.contact-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 28px;
+    background: linear-gradient(180deg, rgba(17, 28, 32, 0.6), rgba(9, 16, 18, 0.6));
+    color: var(--muted);
+    padding: 20px 16px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-nav a {
+    color: var(--muted);
+    margin-left: 12px;
+    text-decoration: none;
+}
+
+/* heading color for testimonial/contact matching bio heading */
+#testimonials h1,
+#contacts h1,
+.about-inner h1 {
+    color: var(--color-secondary);
+    text-align: center; /* center section headings */
+    margin-bottom: 12px;
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-right {
+        width: 100%;
+    }
+
+    .contacts-grid {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        width: 100%; /* Make info box full-width on mobile */
+    }
+
+    .testimonials-wrap {
+        flex-direction: column;
+    }
+}
+
+/* Laptop-specific: tighten hero so logo isn't oversized on typical laptop screens */
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
+    .hero {
+        padding: 20px 12px;
+    }
+
+    .hero-left {
+        justify-content: flex-start;
+    }
+
+    .hero-image-wrapper {
+        max-width: 420px; /* reduce logo container width on laptops */
+    }
+
+    .hero-image {
+        max-height: 320px; /* much smaller on laptops */
+    }
+
+    .hero-right {
+        flex: 0 0 300px;
+        max-width: 340px;
+        padding: 18px;
+    }
+}
+
+/* Mobile: center testimonial slider and controls without breaking slider JS */
+@media screen and (max-width: 700px) {
+    #testimonials {
+        padding: 20px 12px;
+    }
+
+    .testimonials-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+    }
+
+    .test-slider {
+        width: 100%;
+        max-width: 420px;
+        box-sizing: border-box;
+    }
+
+    /* Keep .test-list as flex so the JS slider can translate it; ensure slides are full-width */
+    .test-list {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .test-list li {
+        min-width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    /* Center the prev/next buttons and make them visible inline */
+    .test-prev,
+    .test-next {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 6px auto;
+        width: 44px;
+        height: 36px;
+    }
+
+    /* Place both buttons side-by-side under the slider */
+    .test-controls {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        width: 100%;
+    }
+}

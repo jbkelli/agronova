@@ -1,0 +1,223 @@
+/* Management page styles - includes shared header/footer styles and layout specific to management */
+:root {
+    --color-dark: #101820;
+    --color-primary: #00FFC0;
+    --color-secondary: #00A3FF;
+    --color-text: #E0E0E0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #0b141d, #071018);
+    color: var(--color-text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: var(--color-dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img.logo {
+    border-radius: 8px;
+}
+
+/* hamburger toggle - hidden by default, shown only on small screens */
+#nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    font-size: 26px;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 6px 10px;
+    transition: all 0.1s;
+}
+
+nav ul li a:hover{
+    background: rgba(0, 255, 192, 0.06);
+    color: var(--color-primary);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 0 16px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.footer-nav a {
+    color: var(--color-text);
+    margin-left: 12px;
+}
+
+@media screen and (max-width: 700px) {
+    nav ul {
+        display: none;
+    }
+
+    #nav-toggle {
+        display: block;
+        position: absolute;
+        right: 12px;
+        top: 10px;
+    }
+
+    header nav.open ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 12px;
+        top: calc(100% + 8px);
+        background: var(--color-dark);
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        z-index: 1200;
+        min-width: 180px;
+    }
+
+    header nav.open ul li a {
+        display: block;
+    }
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Management team styles */
+.team-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 16px;
+}
+
+.team-title {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.team-member {
+    display: flex;
+    gap: 44px;
+    align-items: center;
+    margin-bottom: 38px;
+}
+
+.team-member.reverse {
+    flex-direction: row-reverse;
+}
+
+.member-media {
+    position: relative;
+    flex: 0 0 360px;
+    max-width: 360px;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform 300ms ease, filter 300ms ease;
+}
+
+.member-photo:hover {
+    transform: scale(1.04);
+    filter: brightness(1.02);
+}
+
+.millie{
+    height: 350px;
+}
+
+.member-name {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.team-member.reverse .member-name {
+    right: 12px;
+    left: auto;
+}
+
+.member-bio {
+    flex: 1;
+}
+
+.member-bio h3 {
+    margin: 0 0 8px 0;
+    color: var(--color-secondary);
+}
+
+.bio-text {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+/* Responsive: stack on small screens */
+@media screen and (max-width: 820px) {
+    .team-member {
+        flex-direction: column;
+    }
+
+    .team-member.reverse {
+        flex-direction: column;
+    }
+
+    .member-media {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .member-name {
+        left: 12px;
+        right: auto;
+        top: 12px;
+    }
+}

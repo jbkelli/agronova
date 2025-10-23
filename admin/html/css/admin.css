@@ -1,0 +1,166 @@
+/* ================================================= */
+/* 1. Global / Biotech Theme Variables */
+/* ================================================= */
+:root {
+    --color-dark: #101820;      /* Dark background */
+    --color-bg-light: #1a2530;  /* Slightly lighter box/panel */
+    --color-primary: #00FFC0;   /* Electric Green (Highlight/Success) */
+    --color-secondary: #00A3FF; /* Deep Blue (Accent/Labels) */
+    --color-text: #E0E0E0;      /* Light Gray text */
+    --color-error: #FF5733;     /* Red (Error/Alert) */
+}
+
+/* ================================================= */
+/* 2. Base & Typography */
+/* ================================================= */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h2 {
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-bg-light);
+    padding-bottom: 10px;
+}
+
+.status-message {
+    padding: 10px;
+    background-color: #151f2a;
+    border-left: 5px solid var(--color-secondary);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* ================================================= */
+/* 3. Header & Navigation */
+/* ================================================= */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--color-bg-light);
+    border-bottom: 1px solid var(--color-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo-text {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.sub-text {
+    font-size: 0.6em;
+    color: var(--color-secondary);
+    display: block;
+}
+
+.btn-logout {
+    padding: 8px 15px;
+    background-color: var(--color-dark);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: var(--color-error);
+    color: var(--color-dark);
+}
+
+/* ================================================= */
+/* 4. Main Admin Panel Layout */
+/* ================================================= */
+.admin-panel {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 192, 0.1);
+}
+
+/* ================================================= */
+/* 5. Form Elements (Input/Textarea/Button) */
+/* ================================================= */
+#post-form {
+    padding: 20px 0;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0b141d; /* Dark input field */
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: vertical; /* Allow vertical resizing for text areas */
+}
+
+input[type="file"] {
+    padding: 12px 0;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 255, 192, 0.5);
+}
+
+/* Style for the main submit button */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    background-color: #00e6b8;
+    transform: translateY(-2px);
+}
+
+/* Accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

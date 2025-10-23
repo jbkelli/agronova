@@ -1,0 +1,100 @@
+/* Biotech Aesthetic Colors */
+:root {
+    --color-dark: #101820;
+    --color-primary: #00FFC0; /* Electric Green */
+    --color-secondary: #00A3FF; /* Deep Blue */
+    --color-text: #E0E0E0;
+    --color-error: #FF5733;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    margin: 0;
+    display: block;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    align-content: center;
+}
+
+.login-container {
+    padding: 20px;
+    background-color: #1a2530; /* Slightly lighter box */
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0, 255, 192, 0.3); /* Electric glow */
+    border: 1px solid var(--color-secondary);
+    max-width: 400px;
+    width: 90%;
+}
+
+.logo-text {
+    font-size: 2em;
+    color: var(--color-primary);
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.sub-text {
+    font-size: 0.5em;
+    display: block;
+    color: var(--color-secondary);
+}
+
+.status-message {
+    text-align: center;
+    padding: 10px 0;
+    min-height: 20px;
+    color: var(--color-text);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0b141d;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 5px var(--color-primary);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-login:hover {
+    background-color: #00e6b8;
+    transform: translateY(-2px);
+}
