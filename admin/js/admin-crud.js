@@ -3,7 +3,7 @@ const POST_STATUS = document.getElementById('post-status');
 const LOGOUT_BTN = document.getElementById('logout-btn');
 const POST_FORM = document.getElementById('post-form');
 // from admin/html/admin-dashboard.html the login file is one level up in the admin folder
-const LOGIN_URL = '../admin-login.html';
+const LOGIN_URL = '/index.html';
 
 //Protection using authorized checkin
 function setupAuthGuard() {

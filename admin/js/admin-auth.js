@@ -1,7 +1,7 @@
 const loginForm = document.getElementById('login-form');
 const statusDiv = document.getElementById('status');
 
-const ADMIN_DASHBOARD_URL = './html/admin-dashboard.html';
+const ADMIN_DASHBOARD_URL = '/html/admin-dashboard.html';
 
 function checkAdminAuthorization(user){
     statusDiv.textContent = "Verifying security claims....";
