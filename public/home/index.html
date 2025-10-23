@@ -185,5 +185,54 @@
         });
 
     </script>
+    <script>
+    // Wait for the page to be fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        const contactForm = document.getElementById('contact-form');
+        const statusMessage = document.querySelector('.msg'); // Get the <p class="msg"> tag
+
+        if (contactForm) {
+        contactForm.addEventListener("submit", function(event) {
+            // 1. Stop the default HTML submission
+            event.preventDefault();
+
+            // 2. Get the data from the form
+            const formData = new FormData(contactForm);
+            
+            // 3. Show a "sending..." message
+            if (statusMessage) {
+            statusMessage.textContent = "Sending...";
+            statusMessage.style.color = "#fff"; // Or your default color
+            }
+
+            // 4. Send the data to FormSubmit using fetch
+            fetch("https://formsubmit.co/ajax/agronova208@gmail.com", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 5. On success, show your message and clear the form
+                if (statusMessage) {
+                statusMessage.textContent = "Message sent successfully!";
+                statusMessage.style.color = "#00FFC0"; // Your primary color
+                }
+                contactForm.reset(); // Clear the form fields
+            })
+            .catch(error => {
+                // 6. On failure, show an error message
+                if (statusMessage) {
+                statusMessage.textContent = "Error: Could not send message.";
+                statusMessage.style.color = "red";
+                }
+            });
+        });
+        }
+    });
+    </script>
 </body>
 </html>
