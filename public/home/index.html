@@ -214,30 +214,23 @@
                 'Accept': 'application/json'
             }
             })
-            .then(response => {
-    // --- THIS IS THE CRITICAL FIX ---
-    // We must check if the server responded with an error
-    if (!response.ok) {
-        // Throw an error, which will be caught by the .catch() block
-        throw new Error(`Server error: ${response.status}`);
-    }
-    return response.json();
-    })
-    .then(data => {
-        // 5. On REAL success, show your message and clear the form
-        if (statusMessage) {
-        statusMessage.textContent = "Message sent successfully!";
-        statusMessage.style.color = "#00FFC0"; // Your primary color
-        }
-        contactForm.reset(); // Clear the form fields
-        setTimeout(statusMessage, 5000)
-    })
-    .catch(error => {
-        // 6. On REAL failure, show an error message
-        console.error("FormSubmit Error:", error);
-        if (statusMessage) {
-        statusMessage.textContent = "Error: Submission failed. Please try again.";
-        statusMessage.style.color = "red";
+            .then(response => response.json())
+            .then(data => {
+                // 5. On success, show your message and clear the form
+                if (statusMessage) {
+                statusMessage.textContent = "Message sent successfully!";
+                statusMessage.style.color = "#00FFC0"; // Your primary color
+                }
+                contactForm.reset(); // Clear the form fields
+            })
+            .catch(error => {
+                // 6. On failure, show an error message
+                if (statusMessage) {
+                statusMessage.textContent = "Error: Could not send message.";
+                statusMessage.style.color = "red";
+                }
+            });
+        });
         }
     });
     </script>
