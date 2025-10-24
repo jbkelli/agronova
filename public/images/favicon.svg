@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="roundedCorners">
+      <rect x="0" y="0" width="100" height="100" rx="20" ry="20"/>
+    </clipPath>
+  </defs>
+  <rect width="100" height="100" fill="#1a2e2a" rx="20" ry="20"/>
+  <g clip-path="url(#roundedCorners)">
+    <!-- Tractor shape -->
+    <circle cx="25" cy="70" r="12" fill="#00A3FF"/>
+    <circle cx="70" cy="70" r="15" fill="#00A3FF"/>
+    <rect x="20" y="40" width="55" height="30" fill="#00FFC0"/>
+    <rect x="30" y="25" width="20" height="15" fill="#00FFC0"/>
+    <!-- Leaf/plant accent -->
+    <ellipse cx="75" cy="30" rx="15" ry="20" fill="#00FFC0" transform="rotate(-25 75 30)"/>
+    <path d="M 75 30 Q 78 40 75 50" stroke="#1a2e2a" stroke-width="2" fill="none"/>
+  </g>
+</svg>
