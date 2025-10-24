@@ -8,7 +8,9 @@
 </head>
 <body>
     <header>
-        <img src="/images/logo.png" alt="" class="logo" width="50px" height="50px">
+        <a href="/home/index.html">
+            <img src="/images/logo.png" alt="" class="logo" width="50px" height="50px">
+        </a>
         <nav>
             <ul>
                 <li><a href="/home/index.html">HOME</a></li>
@@ -28,10 +30,10 @@
             <div class="hero-left">
                 <div class="hero-image-wrapper">
                     <img src="/images/hero.jpg" alt="agrinova hero" class="hero-image">
-                    <div class="hero-overlay">
-                        <h2 class="hero-title">Agri<span>Nova</span> Researchers</h2>
-                        <p class="phrase">Cultivating a future where African agriculture is synonymous with innovation, sustainability, and prosperity for all</p>
-                    </div>
+                </div>
+                <div class="hero-text">
+                    <h2 class="hero-title">Agri<span>Nova</span> Researchers</h2>
+                    <p class="phrase">Cultivating a future where African agriculture is synonymous with innovation, sustainability, and prosperity for all</p>
                 </div>
             </div>
             <div class="hero-right headline">
@@ -101,7 +103,7 @@
             <h1>Contact Us</h1>
             <div class="contacts-grid">
                 
-                <form id="contact-form" action="https://formsubmit.co/agronova208@gmail.com" method="POST">
+                <form id="contact-form" action="https://formsubmit.co/agrinova208@gmail.com" method="POST">
                     
                     <input type="hidden" name="_subject" value="New Website Inquiry - AgriNova Solutions">
 
@@ -125,7 +127,10 @@
 
                 <div class="contact-info">
                     <p class="contact-call">
-                        📞 <a href="https://wa.me/254721512208?text=hey%20there%20i%20would%20like%20to%20know%20more" target="_blank">+254721512208</a>
+                        📞 Chairperson <a href="https://wa.me/254721512208?text=hey%20there%20i%20would%20like%20to%20know%20more" target="_blank">+254721512208</a>
+                    </p>
+                    <p class="contact-call">
+                        📞 Vice Chair <a href="https://wa.me/254722714313?text=hey%20there%20i%20would%20like%20to%20know%20more" target="_blank">+254722714313</a>
                     </p>
                     
                     <p class="contact-linkedin">
@@ -133,7 +138,7 @@
                     </p>
 
                     <p class="contact-email">
-                        ✉️ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=agronova208@gmail.com" target="_blank">agronova208@gmail.com</a>
+                        ✉️ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=agrinova208@gmail.com" target="_blank">agrinova208@gmail.com</a>
                     </p>
                 </div>
             </div>
@@ -207,7 +212,7 @@
             }
 
             // 4. Send the data to FormSubmit using fetch
-            fetch("https://formsubmit.co/ajax/agronova208@gmail.com", {
+            fetch("https://formsubmit.co/ajax/agrinova208@gmail.com", {
             method: "POST",
             body: formData,
             headers: {
@@ -220,6 +225,12 @@
                 if (statusMessage) {
                 statusMessage.textContent = "Message sent successfully!";
                 statusMessage.style.color = "#00FFC0"; // Your primary color
+                
+                // Hide the message after 5 seconds
+                setTimeout(function() {
+                    statusMessage.textContent = "";
+                    statusMessage.style.color = "";
+                }, 5000);
                 }
                 contactForm.reset(); // Clear the form fields
             })
@@ -228,6 +239,12 @@
                 if (statusMessage) {
                 statusMessage.textContent = "Error: Could not send message.";
                 statusMessage.style.color = "red";
+                
+                // Hide error message after 5 seconds too
+                setTimeout(function() {
+                    statusMessage.textContent = "";
+                    statusMessage.style.color = "";
+                }, 5000);
                 }
             });
         });

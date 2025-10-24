@@ -1,10 +1,10 @@
 /* Public Site Styling */
 :root {
-    --color-dark: #101820;
+    --color-dark: #1a2e2a;
     --color-primary: #00FFC0;
     --color-secondary: #00A3FF;
     --color-text: #E0E0E0;
-    --color-bg-light: #222b36;
+    --color-bg-light: #2d4a44;
 }
 
 html, body {

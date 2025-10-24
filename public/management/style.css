@@ -1,6 +1,6 @@
 /* Management page styles - includes shared header/footer styles and layout specific to management */
 :root {
-    --color-dark: #101820;
+    --color-dark: #1a2e2a;
     --color-primary: #00FFC0;
     --color-secondary: #00A3FF;
     --color-text: #E0E0E0;
@@ -13,7 +13,7 @@ body {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #0b141d, #071018);
+    background: linear-gradient(180deg, #1a3430, #152a28);
     color: var(--color-text);
     margin: 0;
     display: flex;

@@ -2,8 +2,8 @@
 /* 1. Global / Biotech Theme Variables */
 /* ================================================= */
 :root {
-    --color-dark: #101820;      /* Dark background */
-    --color-bg-light: #1a2530;  /* Slightly lighter box/panel */
+    --color-dark: #1a2e2a;      /* Dark background - agri-tech green */
+    --color-bg-light: #2a3f3b;  /* Slightly lighter box/panel */
     --color-primary: #00FFC0;   /* Electric Green (Highlight/Success) */
     --color-secondary: #00A3FF; /* Deep Blue (Accent/Labels) */
     --color-text: #E0E0E0;      /* Light Gray text */
