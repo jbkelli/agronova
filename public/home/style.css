@@ -24,12 +24,16 @@ html {
     scroll-behavior: smooth;
     background: linear-gradient(180deg, var(--page-bg-start), var(--page-bg-end));
     color: var(--text-high);
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 /* Prevent accidental horizontal overflow from large images or elements */
 body {
     overflow-x: hidden;
     overflow-y: auto; /* Ensure vertical scrolling is enabled */
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* FIX #2: Resets browser default margin */
@@ -759,6 +763,17 @@ footer {
 
 /* Mobile: center testimonial slider and controls without breaking slider JS */
 @media screen and (max-width: 700px) {
+    /* Fix white margin on right side - ensure everything is contained */
+    body, html {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    main, .container, .hero, .carousel-container {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
     #testimonials {
         padding: 20px 12px;
     }
@@ -810,5 +825,52 @@ footer {
         gap: 12px;
         justify-content: center;
         width: 100%;
+    }
+}
+
+/* Fix for tablet/small desktop range (700px - 930px) - prevent right margin */
+@media screen and (min-width: 701px) and (max-width: 930px) {
+    body, html {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    main, .container, .hero, .carousel-container {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .hero {
+        margin: 20px 12px;
+        padding: 20px 12px;
+    }
+    
+    .hero-right {
+        width: 100%;
+        max-width: 340px;
+    }
+}
+
+/* Fix for very small screens (below 470px) */
+@media screen and (max-width: 470px) {
+    body, html {
+        max-width: 100vw;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    main, .container, .hero, .carousel-container {
+        max-width: 100vw;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .hero {
+        margin: 10px 8px;
+        padding: 16px 8px;
+    }
+    
+    .carousel-container {
+        margin: 10px 0;
     }
 }

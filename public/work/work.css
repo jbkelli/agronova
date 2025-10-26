@@ -78,9 +78,10 @@ h2 {
 .work img {
     width: 100%;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     transition: transform 300ms ease, filter 300ms ease;
+    background: var(--color-bg-light);
 }
 
 .work img:hover {
