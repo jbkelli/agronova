@@ -1,10 +1,12 @@
-/* Align colors and header/footer with the rest of the site */
+/* Align colors and header/footer with the rest of the site - AgroNova Brand */
 :root {
-    --color-dark: #1a2e2a;
-    --color-primary: #00FFC0;
-    --color-secondary: #00A3FF;
-    --color-text: #E0E0E0;
-    --color-bg-light: #2d4a44;
+    --color-dark: #2C5F4F;        /* Deep forest green for depth */
+    --color-primary: #6BBF59;     /* Vibrant light green - agricultural */
+    --color-secondary: #5BA3D0;   /* Professional light blue - tech/water */
+    --color-text: #2D2D2D;        /* Dark gray for readability */
+    --color-bg-light: #F5F5DC;    /* Cream/beige background */
+    --color-cream: #FFF8E8;       /* Pure cream white */
+    --color-accent: #4A9D7E;      /* Teal blend for accents */
 }
 
 * {
@@ -21,7 +23,7 @@ body {
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: var(--color-dark);
+    background-color: var(--color-cream);
     color: var(--color-text);
     display: flex;
     flex-direction: column;
@@ -43,15 +45,16 @@ h2 {
 .work {
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.28s ease, box-shadow 0.28s ease;
     cursor: pointer;
     position: relative;
+    border: 2px solid var(--color-primary);
 }
 
 .work:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 24px rgba(107, 191, 89, 0.3);
 }
 
 .work-caption {
@@ -60,8 +63,8 @@ h2 {
     left: 0;
     width: 100%;
     padding: 12px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
-    color: var(--color-text);
+    background: linear-gradient(180deg, rgba(44, 95, 79, 0), rgba(44, 95, 79, 0.95));
+    color: var(--color-cream);
     text-align: center;
     font-weight: 700;
     opacity: 0;
@@ -106,14 +109,16 @@ h2 {
 .pagination-controls button {
     background: transparent;
     color: var(--color-text);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 2px solid var(--color-primary);
     padding: 8px 12px;
     border-radius: 6px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .pagination-controls button:hover:not(:disabled) {
-    background: rgba(0, 255, 192, 0.06);
+    background: var(--color-primary);
+    color: white;
 }
 
 .pagination-controls button:disabled {
@@ -141,12 +146,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-dark);
-    margin: 0;
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
     padding: 8px 16px;
+    position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 header img.logo {
@@ -164,14 +173,15 @@ nav ul {
 }
 
 nav ul li a {
-    color: var(--color-text);
+    color: var(--color-cream);
     text-decoration: none;
     padding: 8px 10px;
     border-radius: 6px;
+    transition: all 0.3s;
 }
 
 nav ul li a:hover {
-    background: rgba(0, 255, 192, 0.06);
+    background: rgba(255, 255, 255, 0.2);
     color: var(--color-primary);
 }
 
@@ -187,8 +197,9 @@ nav ul li a:hover {
 
 footer {
     margin-top: auto;
-    background: var(--color-bg-light);
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
     padding: 12px 16px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .footer-inner {
@@ -197,12 +208,18 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.9em;
 }
 
 .footer-nav a {
-    color: var(--color-text);
+    color: var(--color-cream);
     margin-left: 12px;
     text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 0.8;
 }
 
 /* Small-screen nav toggle behavior for this page */

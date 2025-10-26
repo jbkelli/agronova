@@ -1,15 +1,18 @@
-/* Biotech Aesthetic Colors */
+/* Biotech Aesthetic Colors - AgroNova Brand */
 :root {
-    --color-dark: #1a2e2a;
-    --color-primary: #00FFC0; /* Electric Green */
-    --color-secondary: #00A3FF; /* Deep Blue */
-    --color-text: #E0E0E0;
-    --color-error: #FF5733;
+    --color-dark: #2C5F4F;        /* Deep forest green for depth */
+    --color-primary: #6BBF59;     /* Vibrant light green - agricultural */
+    --color-secondary: #5BA3D0;   /* Professional light blue - tech/water */
+    --color-text: #2D2D2D;        /* Dark gray for readability */
+    --color-bg-light: #F5F5DC;    /* Cream/beige background */
+    --color-cream: #FFF8E8;       /* Pure cream white */
+    --color-error: #E85D4A;       /* Warm red for errors */
+    --color-accent: #4A9D7E;      /* Teal blend for accents */
 }
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: var(--color-dark);
+    background-color: var(--color-cream);
     color: var(--color-text);
     margin: 0;
     display: block;
@@ -22,10 +25,10 @@ body {
 
 .login-container {
     padding: 20px;
-    background-color: #1a2530; /* Slightly lighter box */
+    background: linear-gradient(135deg, rgba(107, 191, 89, 0.1), rgba(91, 163, 208, 0.1));
     border-radius: 10px;
-    box-shadow: 0 0 40px rgba(0, 255, 192, 0.3); /* Electric glow */
-    border: 1px solid var(--color-secondary);
+    box-shadow: 0 8px 30px rgba(107, 191, 89, 0.2);
+    border: 2px solid var(--color-primary);
     max-width: 400px;
     width: 90%;
 }
@@ -66,35 +69,35 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    background-color: #0b141d;
-    border: 1px solid var(--color-secondary);
-    color: var(--color-primary);
+    background-color: white;
+    border: 2px solid var(--color-primary);
+    color: var(--color-text);
     border-radius: 5px;
     box-sizing: border-box;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: var(--color-primary);
+    border-color: var(--color-secondary);
     outline: none;
-    box-shadow: 0 0 5px var(--color-primary);
+    box-shadow: 0 0 8px rgba(91, 163, 208, 0.4);
 }
 
 .btn-login {
     width: 100%;
     padding: 12px;
-    background-color: var(--color-primary);
-    color: var(--color-dark);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
     border: none;
     border-radius: 5px;
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: all 0.3s;
 }
 
 .btn-login:hover {
-    background-color: #00e6b8;
     transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(107, 191, 89, 0.4);
 }

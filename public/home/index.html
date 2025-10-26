@@ -53,6 +53,28 @@
         <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     </header>
 
+    <!-- Image Carousel / Fader -->
+    <section class="carousel-container">
+        <div class="carousel-slide active">
+            <img src="/images/carousel.jpg" alt="Carousel Image 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="/images/carousel1.JPG" alt="Carousel Image 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="/images/carousel2.JPG" alt="Carousel Image 3">
+        </div>
+        <!-- Navigation Dots -->
+        <div class="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+        <!-- Previous/Next Arrows -->
+        <button class="carousel-arrow carousel-prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-arrow carousel-next" aria-label="Next slide">›</button>
+    </section>
+
     <main>
         <section class="hero">
             <div class="hero-left">
@@ -60,7 +82,7 @@
                     <img src="/images/hero.jpg" alt="agrinova hero" class="hero-image">
                 </div>
                 <div class="hero-text">
-                    <h2 class="hero-title">Agri<span>Nova</span> Researchers</h2>
+                    <h2 class="hero-title">Agri<span>Nova</span> Solutions</h2>
                     <p class="phrase">Cultivating a future where African agriculture is synonymous with innovation, sustainability, and prosperity for all</p>
                 </div>
             </div>
@@ -182,6 +204,7 @@
         </div>
     </footer>
 
+    <script src="carousel.js"></script>
     <script src="testimonials.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

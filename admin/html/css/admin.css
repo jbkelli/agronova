@@ -1,13 +1,15 @@
 /* ================================================= */
-/* 1. Global / Biotech Theme Variables */
+/* 1. Global / AgroNova Brand Theme Variables */
 /* ================================================= */
 :root {
-    --color-dark: #1a2e2a;      /* Dark background - agri-tech green */
-    --color-bg-light: #2a3f3b;  /* Slightly lighter box/panel */
-    --color-primary: #00FFC0;   /* Electric Green (Highlight/Success) */
-    --color-secondary: #00A3FF; /* Deep Blue (Accent/Labels) */
-    --color-text: #E0E0E0;      /* Light Gray text */
-    --color-error: #FF5733;     /* Red (Error/Alert) */
+    --color-dark: #2C5F4F;        /* Deep forest green for depth */
+    --color-bg-light: #F5F5DC;    /* Cream/beige background */
+    --color-primary: #6BBF59;     /* Vibrant light green - agricultural */
+    --color-secondary: #5BA3D0;   /* Professional light blue - tech/water */
+    --color-text: #2D2D2D;        /* Dark gray for readability */
+    --color-cream: #FFF8E8;       /* Pure cream white */
+    --color-error: #E85D4A;       /* Warm red for errors */
+    --color-accent: #4A9D7E;      /* Teal blend for accents */
 }
 
 /* ================================================= */
@@ -15,7 +17,7 @@
 /* ================================================= */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: var(--color-dark);
+    background-color: var(--color-cream);
     color: var(--color-text);
     margin: 0;
     line-height: 1.6;
@@ -23,16 +25,17 @@ body {
 
 h2 {
     color: var(--color-primary);
-    border-bottom: 1px solid var(--color-bg-light);
+    border-bottom: 2px solid var(--color-primary);
     padding-bottom: 10px;
 }
 
 .status-message {
     padding: 10px;
-    background-color: #151f2a;
+    background-color: var(--color-bg-light);
     border-left: 5px solid var(--color-secondary);
     margin-bottom: 20px;
     font-style: italic;
+    color: var(--color-text);
 }
 
 /* ================================================= */
@@ -42,15 +45,22 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: var(--color-bg-light);
-    border-bottom: 1px solid var(--color-primary);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
+    border-bottom: 3px solid var(--color-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin: 0;
 }
 
 .logo-text {
     font-size: 1.5em;
-    color: var(--color-primary);
+    color: var(--color-cream);
     letter-spacing: 1px;
     margin: 0;
 }
@@ -63,17 +73,17 @@ h2 {
 
 .btn-logout {
     padding: 8px 15px;
-    background-color: var(--color-dark);
+    background-color: transparent;
     color: var(--color-error);
-    border: 1px solid var(--color-error);
+    border: 2px solid var(--color-error);
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
 }
 
 .btn-logout:hover {
     background-color: var(--color-error);
-    color: var(--color-dark);
+    color: white;
 }
 
 /* ================================================= */
@@ -83,9 +93,10 @@ h2 {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
-    background-color: var(--color-bg-light);
+    background: linear-gradient(135deg, rgba(107, 191, 89, 0.08), rgba(91, 163, 208, 0.08));
     border-radius: 8px;
-    box-shadow: 0 0 30px rgba(0, 255, 192, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--color-primary);
 }
 
 /* ================================================= */
@@ -112,9 +123,9 @@ input[type="text"],
 textarea {
     width: 100%;
     padding: 12px;
-    background-color: #0b141d; /* Dark input field */
-    border: 1px solid var(--color-secondary);
-    color: var(--color-primary);
+    background-color: white;
+    border: 2px solid var(--color-primary);
+    color: var(--color-text);
     border-radius: 5px;
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -127,30 +138,30 @@ input[type="file"] {
 
 input:focus,
 textarea:focus {
-    border-color: var(--color-primary);
+    border-color: var(--color-secondary);
     outline: none;
-    box-shadow: 0 0 8px rgba(0, 255, 192, 0.5);
+    box-shadow: 0 0 8px rgba(91, 163, 208, 0.4);
 }
 
 /* Style for the main submit button */
 .btn-submit {
     width: 100%;
     padding: 15px;
-    background-color: var(--color-primary);
-    color: var(--color-dark);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: all 0.3s;
     margin-top: 10px;
     text-transform: uppercase;
 }
 
 .btn-submit:hover {
-    background-color: #00e6b8;
     transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(107, 191, 89, 0.4);
 }
 
 /* Accessibility */
@@ -164,3 +175,364 @@ textarea:focus {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+/* ================================================= */
+/* 6. Footer (matching header) */
+/* ================================================= */
+footer {
+    margin-top: auto;
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
+    color: var(--color-cream);
+    padding: 12px 16px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+.footer-nav a {
+    color: var(--color-cream);
+    margin-left: 12px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 0.8;
+}
+
+/* ================================================= */
+/* 7. Admin Navigation Tabs */
+/* ================================================= */
+.admin-nav-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--color-bg-light);
+    border-bottom: 3px solid var(--color-primary);
+    margin: 0;
+    padding: 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 20px;
+    background: transparent;
+    color: var(--color-text);
+    border: none;
+    border-right: 1px solid rgba(107, 191, 89, 0.2);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.tab-btn:last-child {
+    border-right: none;
+}
+
+.tab-btn:hover {
+    background: rgba(107, 191, 89, 0.1);
+}
+
+.tab-btn.active {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* ================================================= */
+/* 8. Tab Content Sections */
+/* ================================================= */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ================================================= */
+/* 9. Uploads List (News & Achievements Management) */
+/* ================================================= */
+.uploads-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.upload-item {
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.upload-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(107, 191, 89, 0.3);
+}
+
+.upload-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.upload-item-content {
+    padding: 15px;
+}
+
+.upload-item-title {
+    color: var(--color-primary);
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.upload-item-date {
+    color: var(--color-secondary);
+    font-size: 0.85em;
+    margin: 0 0 10px 0;
+}
+
+.upload-item-summary {
+    color: var(--color-text);
+    font-size: 0.9em;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+.upload-item-caption {
+    color: var(--color-text);
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn-delete {
+    width: 100%;
+    padding: 10px;
+    background: var(--color-error);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-delete:hover {
+    background: #D04A3A;
+    transform: translateY(-2px);
+}
+
+.btn-delete:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ================================================= */
+/* 10. Notification System */
+/* ================================================= */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.notification {
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-left: 4px solid var(--color-primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.success {
+    border-left-color: var(--color-primary);
+    background: linear-gradient(to right, #f0fff4, white);
+}
+
+.notification.error {
+    border-left-color: var(--color-error);
+    background: linear-gradient(to right, #fff5f5, white);
+}
+
+.notification.info {
+    border-left-color: var(--color-secondary);
+    background: linear-gradient(to right, #f0f9ff, white);
+}
+
+.notification.warning {
+    border-left-color: #F59E0B;
+    background: linear-gradient(to right, #fffbeb, white);
+}
+
+.notification-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    color: var(--color-text);
+    font-size: 14px;
+}
+
+.notification-message {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    color: var(--color-text);
+}
+
+/* ================================================= */
+/* 11. Confirmation Modal */
+/* ================================================= */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    max-width: 500px;
+    width: 90%;
+    animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h3 {
+    margin: 0 0 12px 0;
+    color: var(--color-dark);
+    font-size: 20px;
+}
+
+.modal-content p {
+    margin: 0 0 24px 0;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.btn-cancel, .btn-confirm {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: #E5E7EB;
+    color: var(--color-text);
+}
+
+.btn-cancel:hover {
+    background: #D1D5DB;
+}
+
+.btn-confirm {
+    background: var(--color-error);
+    color: white;
+}
+
+.btn-confirm:hover {
+    background: #DC2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+

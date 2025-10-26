@@ -1,16 +1,18 @@
 :root {
-    --color-dark: #1a2e2a;
-    --color-primary: #00FFC0;
-    --color-secondary: #00A3FF;
-    --color-text: #E0E0E0;
-    --color-bg-light: #2d4a44;
+    --color-dark: #2C5F4F;        /* Deep forest green for depth */
+    --color-primary: #6BBF59;     /* Vibrant light green - agricultural */
+    --color-secondary: #5BA3D0;   /* Professional light blue - tech/water */
+    --color-text: #2D2D2D;        /* Dark gray for readability */
+    --color-bg-light: #F5F5DC;    /* Cream/beige background */
+    --color-cream: #FFF8E8;       /* Pure cream white */
+    --color-accent: #4A9D7E;      /* Teal blend for accents */
 }
 
 :root {
-    --page-bg-start: var(--color-bg-light); /* #2d4a44 - teal-green blend */
-    --page-bg-end: #1a3430; /* deep forest-tech green */
-    --text-high: var(--color-text); /* #E0E0E0 */
-    --muted: #9fbfb5; /* soft green for secondary text */
+    --page-bg-start: var(--color-cream);
+    --page-bg-end: #F0E8D8; /* Slightly darker cream for gradient */
+    --text-high: var(--color-text);
+    --muted: #5A7A6B; /* Muted green-gray for secondary text */
 }
 
 /* FIX #2: FIXES HORIZONTAL SCROLL */
@@ -25,13 +27,15 @@ html {
 }
 
 /* Prevent accidental horizontal overflow from large images or elements */
-html, body {
+body {
     overflow-x: hidden;
+    overflow-y: auto; /* Ensure vertical scrolling is enabled */
 }
 
 /* FIX #2: Resets browser default margin */
 body {
     margin: 0;
+    position: relative; /* Establish positioning context */
 }
 
 main{
@@ -44,12 +48,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-dark);
-    margin: 0;
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
     padding: 8px 16px;
+    position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 header img {
@@ -91,15 +99,16 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--color-text);
+    color: var(--color-cream);
     text-decoration: none;
     padding: 8px 10px;
     border-radius: 6px;
     display: block; /* Make links full-width in the dropdown */
+    transition: all 0.3s;
 }
 
 nav ul li a:hover {
-    background: rgba(0, 255, 192, 0.06);
+    background: rgba(255, 255, 255, 0.2);
     color: var(--color-primary);
 }
 
@@ -173,6 +182,10 @@ header nav.open ul {
         align-items: center;
         gap: 10px;
         padding: 8px 12px;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     /* ensure nav list doesn't wrap and has no bullets (forcefully) */
@@ -250,13 +263,159 @@ header nav.open ul {
     /* header nav.open ul li a { ... } */
 }
 
+/* ================================================= */
+/* IMAGE CAROUSEL / FADER */
+/* ================================================= */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-bg-light), var(--color-cream));
+    margin: 10px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Navigation Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-cream);
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1.3);
+}
+
+/* Carousel Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(107, 191, 89, 0.7);
+    color: white;
+    border: none;
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.carousel-arrow:hover {
+    background: var(--color-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+/* Responsive Carousel */
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        height: 350px;
+    }
+    
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+    }
+    
+    .carousel-prev {
+        left: 10px;
+    }
+    
+    .carousel-next {
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-container {
+        height: 280px;
+    }
+    
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
+/* ================================================= */
+/* END CAROUSEL */
+/* ================================================= */
+
 /* HERO */
 .hero {
     display: flex;
     gap: 24px;
     align-items: stretch;
     padding: 24px 16px;
-    background: linear-gradient(180deg, rgba(6, 18, 26, 0.12), rgba(7, 26, 20, 0.06));
+    background: linear-gradient(135deg, rgba(107, 191, 89, 0.08), rgba(91, 163, 208, 0.08));
+    border-radius: 12px;
+    margin: 20px 16px;
 }
 
 .hero-left {
@@ -275,10 +434,11 @@ header nav.open ul {
 
 .hero-right {
     width: 380px;
-    background: linear-gradient(180deg, rgba(0, 255, 192, 0.03), rgba(0, 163, 255, 0.02));
+    background: linear-gradient(135deg, rgba(107, 191, 89, 0.12), rgba(91, 163, 208, 0.12));
     padding: 28px;
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(107, 191, 89, 0.3);
     margin: 0%;
 }
 
@@ -342,22 +502,29 @@ img, .hero-image, header img {
 .btn-primary {
     display: inline-block;
     margin-top: 12px;
-    background: var(--color-primary);
-    color: #06121a;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
     padding: 10px 16px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
-    box-shadow: 0 6px 18px rgba(0, 255, 192, 0.08);
+    box-shadow: 0 4px 12px rgba(107, 191, 89, 0.3);
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(107, 191, 89, 0.5);
 }
 
 /* ABOUT */
 .about-inner {
     padding: 32px 16px;
-    background: linear-gradient(180deg, rgba(1, 20, 14, 0.08), rgba(1, 30, 24, 0.02));
+    background: linear-gradient(135deg, rgba(107, 191, 89, 0.08), rgba(91, 163, 208, 0.08));
     border-radius: 10px;
     max-width: 900px; /* constrain width so it centers nicely */
     margin: 20px auto; /* center the about block */
+    border: 1px solid rgba(107, 191, 89, 0.2);
 }
 
 .about-inner h1 {
@@ -403,20 +570,28 @@ img, .hero-image, header img {
 .test-list li {
     min-width: 100%;
     padding: 20px;
-    background: linear-gradient(90deg, rgba(6, 18, 26, 0.3), rgba(6, 18, 26, 0.15));
+    background: linear-gradient(135deg, rgba(107, 191, 89, 0.1), rgba(91, 163, 208, 0.1));
     color: var(--text-high);
     border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(107, 191, 89, 0.2);
 }
 
 .test-prev,
 .test-next {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 2px solid var(--color-primary);
     color: var(--color-primary);
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.test-prev:hover,
+.test-next:hover {
+    background: var(--color-primary);
+    color: white;
 }
 
 /* CONTACTS */
@@ -434,17 +609,19 @@ img, .hero-image, header img {
 
 #contact-form {
     flex: 1;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(107, 191, 89, 0.08);
     padding: 18px;
     border-radius: 8px;
+    border: 1px solid rgba(107, 191, 89, 0.2);
 }
 
 .contact-info {
     width: 300px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(91, 163, 208, 0.08);
     padding: 18px;
     border-radius: 8px;
     color: var(--text-high);
+    border: 1px solid rgba(91, 163, 208, 0.2);
 }
 
 #contact-form label {
@@ -458,30 +635,45 @@ img, .hero-image, header img {
     width: 100%;
     padding: 8px;
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: transparent;
-    color: var(--text-high);
+    border: 2px solid var(--color-primary);
+    background: white;
+    color: var(--color-text);
+    transition: all 0.3s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 8px rgba(91, 163, 208, 0.3);
 }
 
 .contact-info {
     width: 300px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(91, 163, 208, 0.08);
     padding: 18px;
     border-radius: 8px;
     color: var(--color-text);
+    border: 1px solid rgba(91, 163, 208, 0.2);
 }
 
 .contact-info a {
-    color: var(--color-primary);
+    color: var(--color-secondary);
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--color-primary);
 }
 
 /* FOOTER */
 footer {
     margin-top: 28px;
-    background: linear-gradient(180deg, rgba(17, 28, 32, 0.6), rgba(9, 16, 18, 0.6));
-    color: var(--muted);
-    padding: 20px 16px;
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
+    color: var(--color-cream);
+    padding: 12px 16px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .footer-inner {
@@ -490,12 +682,18 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.9em;
 }
 
 .footer-nav a {
-    color: var(--muted);
+    color: var(--color-cream);
     margin-left: 12px;
     text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 0.8;
 }
 
 /* heading color for testimonial/contact matching bio heading */

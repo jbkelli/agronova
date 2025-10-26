@@ -1,9 +1,11 @@
-/* Management page styles - includes shared header/footer styles and layout specific to management */
+/* Management page styles - AgroNova Brand Colors */
 :root {
-    --color-dark: #1a2e2a;
-    --color-primary: #00FFC0;
-    --color-secondary: #00A3FF;
-    --color-text: #E0E0E0;
+    --color-dark: #2C5F4F;        /* Deep forest green for depth */
+    --color-primary: #6BBF59;     /* Vibrant light green - agricultural */
+    --color-secondary: #5BA3D0;   /* Professional light blue - tech/water */
+    --color-text: #2D2D2D;        /* Dark gray for readability */
+    --color-cream: #FFF8E8;       /* Pure cream white */
+    --color-accent: #4A9D7E;      /* Teal blend for accents */
 }
 
 html,
@@ -13,27 +15,37 @@ body {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #1a3430, #152a28);
+    background: linear-gradient(135deg, var(--color-cream), #F0E8D8);
     color: var(--color-text);
     margin: 0;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 12px 18px;
-    background: var(--color-dark);
-    position: sticky;
+    align-items: center;
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
+    padding: 8px 0px;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 header img.logo {
     border-radius: 8px;
+}
+
+/* Add padding to body to account for fixed header */
+main {
+    padding-top: 70px; /* Adjust based on header height */
 }
 
 /* hamburger toggle - hidden by default, shown only on small screens */
@@ -55,14 +67,15 @@ nav ul {
 }
 
 nav ul li a {
-    color: var(--color-text);
+    color: var(--color-cream);
     text-decoration: none;
     padding: 6px 10px;
-    transition: all 0.1s;
+    transition: all 0.3s;
+    border-radius: 6px;
 }
 
 nav ul li a:hover{
-    background: rgba(0, 255, 192, 0.06);
+    background: rgba(255, 255, 255, 0.2);
     color: var(--color-primary);
 }
 
@@ -82,8 +95,14 @@ nav ul li a:hover{
 }
 
 .footer-nav a {
-    color: var(--color-text);
+    color: var(--color-cream);
     margin-left: 12px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 700px) {
@@ -117,10 +136,6 @@ nav ul li a:hover{
     }
 }
 
-main {
-    flex: 1 0 auto;
-}
-
 /* Management team styles */
 .team-section {
     max-width: 1100px;
@@ -139,6 +154,11 @@ main {
     gap: 44px;
     align-items: center;
     margin-bottom: 38px;
+    background: rgba(107, 191, 89, 0.08);
+    padding: 24px;
+    border-radius: 12px;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .team-member.reverse {
@@ -158,6 +178,7 @@ main {
     border-radius: 8px;
     display: block;
     transition: transform 300ms ease, filter 300ms ease;
+    border: 3px solid var(--color-secondary);
 }
 
 .member-photo:hover {
@@ -177,11 +198,12 @@ main {
     position: absolute;
     left: 12px;
     top: 12px;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     color: white;
     padding: 6px 10px;
     border-radius: 6px;
     font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .team-member.reverse .member-name {
@@ -202,6 +224,15 @@ main {
     margin: 0;
     color: var(--color-text);
     line-height: 1.5;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(90deg, var(--color-dark) 0%, var(--color-accent) 100%);
+    color: var(--color-cream);
+    padding: 12px 16px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
 }
 
 /* Responsive: stack on small screens */
